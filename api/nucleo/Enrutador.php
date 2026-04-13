@@ -5,16 +5,22 @@ namespace Api\Nucleo;
 class Enrutador {
 
     private $rutas = [];
+    private $entidad;
 
-    public function add($metodo, $ruta, $proceso) {
+    public function setEntidad($entidad) {
+        $this->entidad = $entidad;
+    }
+
+    public function agregarRuta($metodo_http, $ruta, $clase, $metodo_clase) {
         $this->rutas[] = [
-            'metodo' => $metodo,
-            'ruta' => $ruta,
-            'proceso' => $proceso
+            'metodo_http' => $metodo_http,
+            'ruta' => $this->entidad . $ruta,
+            'clase' => $clase,
+            'metodo_clase' => $metodo_clase
         ];
     }
 
-    public function procesar() {
+    public function procesarRuta() {
 
         $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
         $metodo = $_SERVER['REQUEST_METHOD'];
