@@ -6,6 +6,10 @@ use Api\Nucleo\Enrutador;
 
 $enrutador = new Enrutador();
 
-// require __DIR__ . '/../api/routes/api_v1.php';
+$archivos = glob(__DIR__ . '/../api/rutas/*.php');
+
+foreach ($archivos as $archivo) {
+    require $archivo;
+}
 
 $enrutador->procesar();
