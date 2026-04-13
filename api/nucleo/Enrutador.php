@@ -27,8 +27,26 @@ class Enrutador {
 
         foreach ($this->rutas as $ruta) {
 
-            if ($ruta['metodo'] === $metodo && $ruta['ruta'] === $uri) {
-                return call_user_func($ruta['proceso']);
+            if ($ruta['metodo_http'] === $metodo && $ruta['ruta'] === $uri) {
+                $clase = $ruta['clase'];
+                $metodo = $ruta['metodo_clase'];
+
+                if (class_exists($clase)) {
+                    $controlador = new $clase();
+                    
+                    return $controlador->$metodo();
+                } else {
+
+                    http_response_code(500);
+
+                    $respuesta = [
+                        'success' => false,
+                        'message' => 'Controlador no encontrado'
+                    ];
+                    
+                     echo json_encode($respuesta);
+                     return;
+                }
             }
         }
 
