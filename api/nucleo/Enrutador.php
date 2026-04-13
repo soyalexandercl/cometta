@@ -1,6 +1,6 @@
 <?php
 
-namespace nucleo;
+namespace Api\Nucleo;
 
 class Enrutador {
 
