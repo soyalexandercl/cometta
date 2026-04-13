@@ -23,18 +23,18 @@ class Enrutador {
     public function procesarRuta() {
 
         $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-        $metodo = $_SERVER['REQUEST_METHOD'];
+        $metodo_http = $_SERVER['REQUEST_METHOD'];
 
         foreach ($this->rutas as $ruta) {
 
-            if ($ruta['metodo_http'] === $metodo && $ruta['ruta'] === $uri) {
+            if ($ruta['metodo_http'] === $metodo_http && $ruta['ruta'] === $uri) {
                 $clase = $ruta['clase'];
-                $metodo = $ruta['metodo_clase'];
+                $metodo_clase = $ruta['metodo_clase'];
 
                 if (class_exists($clase)) {
                     $controlador = new $clase();
-                    
-                    return $controlador->$metodo();
+
+                    return $controlador->$metodo_clase();
                 } else {
 
                     http_response_code(500);
