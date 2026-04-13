@@ -1,0 +1,10 @@
+{
+    "name": "cometta/cometta",
+    "autoload": {
+        "psr-4": {
+            "Api\\App\\": "api/app/",
+            "Api\\Nucleo\\": "api/nucleo/"
+        }
+    },
+    "require": {}
+}
