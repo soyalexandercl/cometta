@@ -9,5 +9,5 @@ return array(
     'Servicios\\' => array($baseDir . '/servicios'),
     'Nucleo\\' => array($baseDir . '/nucleo'),
     'Modelos\\' => array($baseDir . '/modelos'),
-    'Controladores\\' => array($baseDir . '/app'),
+    'Controladores\\' => array($baseDir . '/controladores'),
 );
