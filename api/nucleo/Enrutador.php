@@ -11,6 +11,10 @@ class Enrutador {
         $this->entidad = $entidad;
     }
 
+    public function getRutas() {
+        return $this->rutas;
+    }
+
     public function agregarRuta($metodo_http, $ruta, $clase, $metodo_clase) {
         $this->rutas[$metodo_http][$this->entidad . $ruta] = [
             'clase' => $clase,

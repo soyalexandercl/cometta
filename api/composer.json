@@ -2,7 +2,7 @@
     "name": "cometta/cometta",
     "autoload": {
         "psr-4": {
-            "Controladores\\": "app/",
+            "Controladores\\": "controladores/",
             "Modelos\\": "modelos/",
             "Servicios\\": "servicios/",
             "Nucleo\\": "nucleo/"
