@@ -13,5 +13,3 @@ foreach ($archivos as $archivo) {
 }
 
 $enrutador->procesarRutas();
-
-// echo json_encode($enrutador->getRutas());

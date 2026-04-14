@@ -40,7 +40,7 @@ class ComposerStaticInit56314525996c1822bd6f3e12da43f3d4
         ),
         'Controladores\\' =>
         array (
-            0 => __DIR__ . '/../..' . '/app',
+            0 => __DIR__ . '/../..' . '/controladores',
         ),
     );
 
