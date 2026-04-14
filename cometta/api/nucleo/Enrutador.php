@@ -1,6 +1,6 @@
 <?php
 
-namespace Api\Nucleo;
+namespace Nucleo;
 
 class Enrutador {
 
@@ -18,14 +18,14 @@ class Enrutador {
         ];
     }
 
-    public function procesarRuta() {
+    public function procesarRutas() {
 
         $metodo_http = $_SERVER['REQUEST_METHOD'];
         $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
         if (isset($this->rutas[$metodo_http][$uri])) {
             
-            $ruta = $this->rutas[$metodo_http][$ruta];
+            $ruta = $this->rutas[$metodo_http][$uri];
             $clase = $ruta['clase'];
             $metodo_clase = $ruta['metodo_clase'];
 

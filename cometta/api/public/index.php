@@ -2,7 +2,7 @@
 
 require __DIR__ . '/../vendor/autoload.php';
 
-use Api\Nucleo\Enrutador;
+use Nucleo\Enrutador;
 
 $enrutador = new Enrutador();
 
@@ -12,4 +12,4 @@ foreach ($archivos as $archivo) {
     require $archivo;
 }
 
-$enrutador->procesar();
+$enrutador->procesarRutas();
