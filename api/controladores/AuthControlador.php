@@ -2,8 +2,17 @@
 
 namespace Controladores;
 
+use Servicios\AuthServicios;
+
 class AuthControlador extends Controlador
 {
+    private $authServicio;
+
+    public function __construct()
+    {
+        $this->authServicio = new AuthServicios();
+    }
+
     public function registro()
     {
         // Lógica para registrar un nuevo usuario
@@ -12,5 +21,8 @@ class AuthControlador extends Controlador
     public function login()
     {
         // Lógica para autenticar a un usuario
+        $datos = json_decode(file_get_contents('php://input'), true);
+
+        $resultado = $this->authServicio->autenticar($datos);
     }
 }

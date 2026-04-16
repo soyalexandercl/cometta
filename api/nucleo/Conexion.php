@@ -11,11 +11,11 @@ class Conexion
 
     public function __construct()
     {
-        $this->construiirConexion();
+        $this->construirConexion();
         $this->obtenerConexion();
     }
 
-    public function construiirConexion()
+    public function construirConexion()
     {
         $host = $_ENV['BASEDATOS_HOST'];
         $nombre = $_ENV['BASEDATOS_NOMBRE'];
@@ -32,7 +32,6 @@ class Conexion
 
             $this->conexion = new PDO($dsn, $usuario, $password, $opciones);
 
-            // Eliminar en producción y configurar el timezone en UTC para evitar problemas de fechas
             $this->conexion->exec("SET time_zone = '+00:00'");
         } catch (PDOException $e) {
             echo $e->getMessage();
