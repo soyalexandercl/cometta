@@ -9,12 +9,12 @@ class AuthServicio
 {
     private $conexion;
     private $auth_modelo;
-    private $clave;
+    private $clave_secreta;
 
     public function __construct($conexion)
     {
         $this->conexion = $conexion;
-        // $this->auth_modelo = new AuthModelo($conexion);
+        $this->auth_modelo = new AuthModelo($conexion);
         $this->clave_secreta = $_ENV['JWT_CLAVE_SECRETA'];
     }
 
@@ -35,5 +35,7 @@ class AuthServicio
         ];
 
         $jwt = JWT::encode($payload, $this->clave_secreta, 'HS256');
+
+        return ['success' => true, 'token' => $jwt];
     }
 }
