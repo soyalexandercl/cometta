@@ -29,8 +29,8 @@ class AuthControlador extends Controlador
     {
         $datos = json_decode(file_get_contents('php://input'), true);
 
-        // $resultado = $this->auth_servicio->registrarUsuario($datos);
+        $resultado = $this->auth_servicio->registrarUsuario($datos);
 
-        echo json_encode($datos);
+        echo json_encode($resultado);
     }
 }

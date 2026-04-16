@@ -20,60 +20,71 @@ class AuthServicio
 
     public function iniciarSesion($datos)
     {
-        // $obtener_usuario = $this->auth_modelo->obtenerEmail($datos['email']);
-        
-        // if (!$obtener_usuario || !password_verify($datos['contrasena'], $obtener_usuario['contrasena'])) {
+        $obtener_usuario = $this->auth_modelo->obtenerEmail($datos['email']);
+
+        if (!$obtener_usuario || !password_verify($datos['contrasena'], $obtener_usuario['contrasena'])) {
             
-        // }
+        }
 
-        // $obtener_rol = $this->auth_modelo->obtenerRol($obtener_usuario['id'], $datos['app']);
+        $obtener_rol = $this->auth_modelo->obtenerRol($obtener_usuario['id'], $datos['app']);
 
-        // if (!$obtener_rol) {
-        //     $registrar_rol = $this->auth_modelo->registrarRol($obtener_usuario['id'], $datos['app']);
-        // }
+        if (!$obtener_rol) {
+            $registrar_rol = $this->auth_modelo->registrarRol($obtener_usuario['id'], $datos['app']);
+        }
 
-        // $payload = [
-        //     'iss' => 'cometta_api',
-        //     'iat' => time(),
-        //     'exp' => time() + (60 * 60),
-        //     'sub' => $obtener_usuario['id'],
-        //     'app' => $datos['app']
-        // ];
+        $payload = [
+            'iss' => 'cometta_api',
+            'iat' => time(),
+            'exp' => time() + (60 * 60),
+            'sub' => $obtener_usuario['id'],
+            'app' => $datos['app']
+        ];
 
-        // $jwt = JWT::encode($payload, $this->clave_secreta, 'HS256');
+        $jwt = JWT::encode($payload, $this->clave_secreta, 'HS256');
 
-        return $datos;
+        $parametros_respuesta = [
+            'success' => true,
+            'token' => $jwt
+        ];
+
+        return $parametros_respuesta;
     }
 
     public function registrarUsuario($datos)
     {
-
-        // return $datos;
-
-        // $obtener_email = $this->auth_modelo->obtenerEmail($datos['email']);   
+        $obtener_email = $this->auth_modelo->obtenerEmail($datos['email']);   
         
-        // if ($obtener_email) {
+        if ($obtener_email) {
             
-        // }
+        }
 
-        // $obtener_telefono = $this->auth_modelo->obtenerTelefono($datos['telefono']);
+        $obtener_telefono = $this->auth_modelo->obtenerTelefono($datos['telefono']);
 
-        // if ($obtener_telefono) {
+        if ($obtener_telefono) {
             
-        // }
+        }
 
-        // $registrar_usuario = $this->auth_modelo->registrarUsuario($datos);
+        $registrar_usuario = $this->auth_modelo->registrarUsuario($datos);
 
-        // $id_usuario = $this->auth_modelo->obtenerId();
+        $id_usuario = $this->auth_modelo->obtenerId();
 
-        // $registrar_rol = $this->auth_modelo->registrarRol($id_usuario, $datos['app']);
+        $registrar_rol = $this->auth_modelo->registrarRol($id_usuario, $datos['app']);
 
-        // $payload = [
-        //     'iss' => 'cometta_api',
-        //     'iat' => time(),
-        //     'exp' => time() + (60 * 60),
-        //     'sub' => $id_usuario,
-        //     'app' => $datos['app']
-        // ];
+        $payload = [
+            'iss' => 'cometta_api',
+            'iat' => time(),
+            'exp' => time() + (60 * 60),
+            'sub' => $id_usuario,
+            'app' => $datos['app']
+        ];
+
+        $jwt = JWT::encode($payload, $this->clave_secreta, 'HS256');
+
+        $parametros_respuesta = [
+            'success' => true,
+            'token' => $jwt
+        ];
+
+        return $parametros_respuesta;
     }
 }
