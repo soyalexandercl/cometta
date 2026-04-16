@@ -20,6 +20,11 @@ class AuthServicio
 
     public function iniciarSesion($datos)
     {
+        // Estructura
+        // "email": "alexcardonal24@gmail.com",
+        // "contrasena": "12345678",
+        // "app": "negocio"
+
         $obtener_usuario = $this->auth_modelo->obtenerEmail($datos['email']);
 
         if (!$obtener_usuario || !password_verify($datos['contrasena'], $obtener_usuario['contrasena'])) {
@@ -52,6 +57,15 @@ class AuthServicio
 
     public function registrarUsuario($datos)
     {
+        // Estructura
+        // "nombre": "Alex",
+        // "apellidos": "Cardona",
+        // "email": "alexcardonal24@gmail.com",
+        // "telefono": "1234567890",
+        // "contrasena": "12345678",
+        // "fecha_nacimiento": "1990-01-01",
+        // "app": "negocio"
+
         $obtener_email = $this->auth_modelo->obtenerEmail($datos['email']);   
         
         if ($obtener_email) {
