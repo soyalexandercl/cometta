@@ -7,7 +7,7 @@ use PDOException;
 
 class Conexion
 {
-    private PDO $conexion;
+    private $conexion;
 
     public function __construct()
     {

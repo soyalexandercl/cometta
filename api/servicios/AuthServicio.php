@@ -21,11 +21,11 @@ class AuthServicio
     public function autenticar($datos)
     {
         // Lógica para autenticar a un usuario
-        // $usuario = $this->auth_modelo->obtenerEmail($datos['email']);
+        $usuario = $this->auth_modelo->obtenerEmail($datos['email']);
         
-        // if (!$usuario || !password_verify($datos['contrasena'], $usuario['contrasena'])) {
-        //     return ['success' => false, 'message' => 'Credenciales incorrectas'];
-        // }
+        if (!$usuario || !password_verify($datos['contrasena'], $usuario['contrasena'])) {
+            return ['success' => false, 'message' => 'Credenciales incorrectas'];
+        }
 
         $payload = [
             'iss' => 'cometta_api', // Emisor
@@ -35,10 +35,5 @@ class AuthServicio
         ];
 
         $jwt = JWT::encode($payload, $this->clave_secreta, 'HS256');
-
-        return [
-            'success' => true,
-            'token' => $jwt
-        ];
     }
 }

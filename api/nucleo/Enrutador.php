@@ -39,22 +39,22 @@ class Enrutador {
             } else {
                 http_response_code(500);
 
-                $respuesta = [
+                $parametros_respuesta = [
                     'success' => false,
-                    'message' => 'Controlador no encontrada'
+                    'message' => 'Controlador no encontrado'
                 ];
                 
-                echo json_encode($respuesta);
+                echo json_encode($parametros_respuesta);
             }
         } else {
             http_response_code(404);
 
-            $respuesta = [
+            $parametros_respuesta = [
                 'success' => false,
                 'message' => 'Ruta no encontrada'
             ];
 
-            echo json_encode($respuesta);
+            echo json_encode($parametros_respuesta);
         }
     }
 }

@@ -2,6 +2,7 @@
 
 namespace Controladores;
 
+use Controladores\Controlador;
 use Servicios\AuthServicio;
 
 class AuthControlador extends Controlador
@@ -19,6 +20,8 @@ class AuthControlador extends Controlador
         $datos = json_decode(file_get_contents('php://input'), true);
 
         $resultado = $this->auth_servicio->autenticar($datos);
+
+        echo json_encode($resultado);
     }
 
     public function registro()
