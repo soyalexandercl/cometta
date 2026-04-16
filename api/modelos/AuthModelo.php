@@ -1,5 +1,9 @@
 <?php
 
+namespace Modelos;
+
+use Modelos\Modelo;
+
 class AuthModelo extends Modelo
 {
     public function __construct($conexion)

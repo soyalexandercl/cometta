@@ -8,5 +8,7 @@
             "Nucleo\\": "nucleo/"
         }
     },
-    "require": {}
+    "require": {
+        "firebase/php-jwt": "^7.0"
+    }
 }

@@ -9,5 +9,6 @@ return array(
     'Servicios\\' => array($baseDir . '/servicios'),
     'Nucleo\\' => array($baseDir . '/nucleo'),
     'Modelos\\' => array($baseDir . '/modelos'),
+    'Firebase\\JWT\\' => array($vendorDir . '/firebase/php-jwt/src'),
     'Controladores\\' => array($baseDir . '/controladores'),
 );

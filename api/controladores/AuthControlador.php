@@ -6,16 +6,11 @@ use Servicios\AuthServicio;
 
 class AuthControlador extends Controlador
 {
-    private $authServicio;
+    private $auth_servicio;
 
     public function __construct()
     {
-        $this->authServicio = new AuthServicio($this->conexion);
-    }
-
-    public function registro()
-    {
-        // Lógica para registrar un nuevo usuario
+        $this->auth_servicio = new AuthServicio($this->conexion);
     }
 
     public function login()
@@ -23,6 +18,11 @@ class AuthControlador extends Controlador
         // Lógica para autenticar a un usuario
         $datos = json_decode(file_get_contents('php://input'), true);
 
-        $resultado = $this->authServicio->autenticar($datos);
+        $resultado = $this->auth_servicio->autenticar($datos);
+    }
+
+    public function registro()
+    {
+        // Lógica para registrar un nuevo usuario
     }
 }
