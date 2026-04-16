@@ -2,7 +2,7 @@
 
 namespace Servicios;
 
-class AuthServicios
+class AuthServicio
 {
     private $conexion;
 
@@ -14,7 +14,5 @@ class AuthServicios
     public function autenticar($datos)
     {
         // Lógica para autenticar a un usuario
-
-        echo "Autenticando con datos: " . json_encode($datos);
     }
 }

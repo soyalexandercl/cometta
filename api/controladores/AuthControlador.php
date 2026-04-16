@@ -2,7 +2,7 @@
 
 namespace Controladores;
 
-use Servicios\AuthServicios;
+use Servicios\AuthServicio;
 
 class AuthControlador extends Controlador
 {
@@ -10,7 +10,7 @@ class AuthControlador extends Controlador
 
     public function __construct()
     {
-        $this->authServicio = new AuthServicios();
+        $this->authServicio = new AuthServicio($this->conexion);
     }
 
     public function registro()
