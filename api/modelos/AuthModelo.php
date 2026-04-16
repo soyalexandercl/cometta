@@ -14,7 +14,7 @@ class AuthModelo extends Modelo
     public function registrarUsuario($datos)
     {
         $sql = "INSERT INTO usuarios (nombre, apellidos, email, telefono, contrasena)
-                VALUES (:nombre, :email, :contrasena)";
+                VALUES (:nombre, :apellidos, :email, :telefono, :contrasena)";
 
         $parametros = [
             ':nombre' => $datos['nombre'],
@@ -49,16 +49,16 @@ class AuthModelo extends Modelo
         return $this->obtenerUno($sql, $parametros);
     }
 
-    public function registrarUsuarioNegocio($id_usuario, $id_negocio) {
-        $sql = "INSERT INTO usuarios_negocios (id_usuario, id_negocio) VALUES (:id_usuario, :id_negocio)";
+    // public function registrarUsuarioNegocio($id_usuario, $id_negocio) {
+    //     $sql = "INSERT INTO usuarios_negocios (id_usuario, id_negocio) VALUES (:id_usuario, :id_negocio)";
 
-        $parametros = [
-            ':id_usuario' => $id_usuario,
-            ':id_negocio' => $id_negocio
-        ];
+    //     $parametros = [
+    //         ':id_usuario' => $id_usuario,
+    //         ':id_negocio' => $id_negocio
+    //     ];
 
-        return $this->ejecutar($sql, $parametros);
-    }
+    //     return $this->ejecutar($sql, $parametros);
+    // }
 
     public function obtenerEmail($email)
     {
