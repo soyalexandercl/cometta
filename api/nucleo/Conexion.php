@@ -12,7 +12,6 @@ class Conexion
     public function __construct()
     {
         $this->construirConexion();
-        $this->obtenerConexion();
     }
 
     public function construirConexion()

@@ -2,6 +2,9 @@
 
 require __DIR__ . '/../vendor/autoload.php';
 
+$env = Dotenv\Dotenv::createImmutable(__DIR__ . '/../');
+$env->load();
+
 use Nucleo\Enrutador;
 
 $enrutador = new Enrutador();

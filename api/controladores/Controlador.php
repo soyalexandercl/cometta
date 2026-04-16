@@ -13,8 +13,9 @@ class Controlador
 
     public function __construct()
     {
-        $this->conexion = new Conexion();
-
+        $conexion = new Conexion();
+        $this->conexion = $conexion->obtenerConexion();
+        
         $this->transaccion = new Transaccion($this->conexion);
     }
 }
