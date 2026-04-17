@@ -23,7 +23,7 @@ class AuthServicio
         // Estructura
         // "email": "alexcardonal24@gmail.com",
         // "contrasena": "12345678",
-        // "app": "negocio"
+        // "rol": "negocio"
 
         $obtener_usuario = $this->auth_modelo->obtenerEmail($datos['email']);
 
@@ -31,10 +31,10 @@ class AuthServicio
             
         }
 
-        $obtener_rol = $this->auth_modelo->obtenerRol($obtener_usuario['id'], $datos['app']);
+        $obtener_rol = $this->auth_modelo->obtenerRol($obtener_usuario['id'], $datos['rol']);
 
         if (!$obtener_rol) {
-            $registrar_rol = $this->auth_modelo->registrarRol($obtener_usuario['id'], $datos['app']);
+            $registrar_rol = $this->auth_modelo->registrarRol($obtener_usuario['id'], $datos['rol']);
         }
 
         $payload = [
@@ -42,7 +42,7 @@ class AuthServicio
             'iat' => time(),
             'exp' => time() + (60 * 60),
             'sub' => $obtener_usuario['id'],
-            'app' => $datos['app']
+            'rol' => $datos['rol']
         ];
 
         $jwt = JWT::encode($payload, $this->clave_secreta, 'HS256');
@@ -64,7 +64,7 @@ class AuthServicio
         // "telefono": "1234567890",
         // "contrasena": "12345678",
         // "fecha_nacimiento": "1990-01-01",
-        // "app": "negocio"
+        // "rol": "negocio"
 
         $obtener_email = $this->auth_modelo->obtenerEmail($datos['email']);   
         
@@ -82,14 +82,14 @@ class AuthServicio
 
         $id_usuario = $this->auth_modelo->obtenerId();
 
-        $registrar_rol = $this->auth_modelo->registrarRol($id_usuario, $datos['app']);
+        $registrar_rol = $this->auth_modelo->registrarRol($id_usuario, $datos['rol']);
 
         $payload = [
             'iss' => 'cometta_api',
             'iat' => time(),
             'exp' => time() + (60 * 60),
             'sub' => $id_usuario,
-            'app' => $datos['app']
+            'rol' => $datos['rol']
         ];
 
         $jwt = JWT::encode($payload, $this->clave_secreta, 'HS256');

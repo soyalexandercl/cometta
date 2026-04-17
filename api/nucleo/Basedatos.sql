@@ -92,7 +92,6 @@ CREATE TABLE usuarios_direcciones (
 CREATE TABLE consentimientos (
     id INT AUTO_INCREMENT PRIMARY KEY,
     rol ENUM('soporte','cliente','negocio','repartidor','flota'),
-    nombre VARCHAR(100) NOT NULL,
     informacion TEXT NOT NULL,
     fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );

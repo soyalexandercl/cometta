@@ -2,7 +2,7 @@
 
 use Controladores\UsuarioControlador;
 
-$enrutador->setEntidad('/usuario');
+$enrutador->setEntidad('/user');
 
 $enrutador->agregarRuta('GET', '/consent', UsuarioControlador::class, 'obtenerConsentimiento');
 $enrutador->agregarRuta('POST', '/consents', UsuarioControlador::class, 'registrarConsentimiento');

@@ -19,11 +19,15 @@ class UsuarioServicio
     public function obtenerConsentimiento($rol) {
         // Estructura
         // "rol": "negocio"
+
+        return $this->usuario_modelo->obtenerConsentimiento($rol);
     }
 
     public function registrarConsentimiento($datos) {
         // Estructura
         // "id_usuario": 1,
         // "id_consentimiento": 1
+
+        return $this->usuario_modelo->registrarConsentimiento($datos);
     }
 }
