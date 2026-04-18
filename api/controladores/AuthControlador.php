@@ -18,18 +18,18 @@ class AuthControlador extends Controlador
 
     public function iniciarSesion()
     {
-        $datos = json_decode(file_get_contents('php://input'), true);
+        $datos_entrada = json_decode(file_get_contents('php://input'), true);
 
-        $resultado = $this->auth_servicio->iniciarSesion($datos);
+        $resultado = $this->auth_servicio->iniciarSesion($datos_entrada);
 
         echo json_encode($resultado);
     }
 
     public function registrarUsuario()
     {
-        $datos = json_decode(file_get_contents('php://input'), true);
+        $datos_entrada = json_decode(file_get_contents('php://input'), true);
 
-        $resultado = $this->auth_servicio->registrarUsuario($datos);
+        $resultado = $this->auth_servicio->registrarUsuario($datos_entrada);
 
         echo json_encode($resultado);
     }
