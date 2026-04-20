@@ -1,0 +1,12 @@
+{
+    "name": "cometta/negocio",
+    "autoload": {
+        "psr-4": {
+            "Controladores\\": "controladores/",
+            "Nucleo\\": "nucleo/"
+        }
+    },
+    "require": {
+
+    }
+}
